@@ -1,0 +1,15 @@
+.detail-container{
+    display: grid;
+    grid-template-areas: "columnLeft columnRight";
+    /* grid-gap: 2rem; */
+}
+
+.column-left{
+    grid-area: columnLeft;
+    margin-right: 2rem;
+}
+
+.column-right{
+    grid-area: columnRight;
+    width: 40%;
+}

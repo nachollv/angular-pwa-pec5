@@ -1,0 +1,32 @@
+<div class="content-header">
+  <mat-button-toggle-group name="goback" aria-label="Back to home" title="Back to home">
+    <mat-button-toggle value="list" (click)="homePage()" ><span class="material-icons">home</span></mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
+<mat-accordion>
+  <mat-expansion-panel hideToggle (opened)="panelOpenState = true"
+  (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{item.title}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{panelOpenState ? 'Hide all details' : 'Show all details'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="detail-container">
+      <img src={{item.thumbnailUrl}} title={{item.thumbnailUrl}} alt={{item.title}} class="column-left">
+      <div class="column-right">
+        <p>
+         {{item.description}}
+        </p>
+        <button mat-button color="primary">Like</button>
+        <button mat-button color="warn">Dislike</button>
+      </div>
+    </div>
+   
+  </mat-expansion-panel>
+</mat-accordion>
+
+<div class="loader" *ngIf="!item"><mat-spinner>Loading...</mat-spinner></div>
